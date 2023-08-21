@@ -13,10 +13,10 @@ jobs:
     - name: Set up .NET
       uses: actions/setup-dotnet@v2
       with:
-        dotnet-version: 3.1.x # Replace with your desired .NET version
+        dotnet-version: 6.0.x # Replace with your desired .NET version
 
     - name: Restore dependencies and build
-       working-directory: .
+      working-directory: .  # This will use the root directory of the repository
       run: |
         dotnet restore
         dotnet build --configuration Release
