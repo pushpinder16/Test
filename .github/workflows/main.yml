@@ -9,9 +9,6 @@ jobs:
   build:
     runs-on: windows-latest
 
-    env:
-      NON_SENSITIVE_VARIABLE: some_value
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -26,12 +23,8 @@ jobs:
           dotnet restore
           dotnet build --configuration Release
 
-     
-      - name: Use Secret
-        run: echo "This is a secret: ${{ secrets.API_KEY }}"
-
       - name: Create and Upload Artifact
         uses: actions/upload-artifact@v2
         with:
           name: build-artifact
-          path: bin/Release
+          path: bin/Release  # Replace with the correct relative path
