@@ -1,26 +1,24 @@
-name: .NET Core Build & Publish
+name: CI/CD Workflow
 
-on:
-  push:
-    branches:
-      - main
+on: [push]
 
 jobs:
   build:
     runs-on: windows-latest
     
     steps:
-    - name: Checkout Repository
+    - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Setup .NET Core
+    - name: Set up .NET
       uses: actions/setup-dotnet@v2
       with:
-        dotnet-version: '6.0' 
+        dotnet-version: 3.1.x # Replace with your desired .NET version
 
-    - name: Build and Publish
+    - name: Restore dependencies and build
+      working-directory: Test3/Test3
       run: |
         dotnet restore
         dotnet build --configuration Release
-        dotnet publish -c Release -o ./publish
-      working-directory: src/BoilerPlate  
+
+    # Add more steps for testing, deployment, etc.
