@@ -1,29 +1,30 @@
 name: CI/CD Workflow
 
-on: [push]
+on:
+  push:
+    branches:
+      - main
 
 jobs:
   build:
     runs-on: windows-latest
-    
+
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: Set up .NET
-      uses: actions/setup-dotnet@v2
-      with:
-        dotnet-version: 6.0.x # Replace with your desired .NET version
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: 6.0.x # Replace with your desired .NET version
 
-    - name: Restore dependencies and build
-      working-directory: .  # This will use the root directory of the repository
-      run: |
-        dotnet restore
-        dotnet build --configuration Release
-
+      - name: Restore dependencies and build
+        run: |
+          dotnet restore
+          dotnet build --configuration Release
 
       - name: Create and Upload Artifact
         uses: actions/upload-artifact@v2
         with:
           name: build-artifact
-          path: bin/Release
+          path: bin/Release  # Replace with the correct relative path
