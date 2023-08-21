@@ -1,0 +1,50 @@
+﻿@model Test3.Models.BookStore
+@{
+    ViewData["Title"] = "Edit";
+}
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" asp-controller="Book" asp-action="Edit">
+            <div class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Author" class="control-label"></label>
+                <input asp-for="Author" class="form-control" />
+                <span asp-validation-for="Author" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+
+                <label asp-for="Image">Image</label>
+
+                <input type="file" class="form-control" asp-for="Image" placeholder="Picture" />
+
+                <span asp-validation-for="Image" class="text-danger"></span>
+
+            </div>
+            <td><img src="/@Model.Image" height="100px" width="100px"></td>
+
+            <p>@TempData["Message"]</p>
+            <div class="form-group">
+                <div class="form-group">
+                    <input type="submit" value="submit" class="btn btn-success">
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>
+
