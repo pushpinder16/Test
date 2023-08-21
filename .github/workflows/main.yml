@@ -27,7 +27,7 @@ jobs:
           dotnet build --configuration Release
 
       - name: Use Environment Variable
-        run: echo "Non-sensitive variable: ${{ env.NON_SENSITIVE_VARIABLE }}"
+        run: echo "Non-sensitive variable: %NON_SENSITIVE_VARIABLE%"
 
       - name: Use Secret
         run: echo "This is a secret: ${{ secrets.API_KEY }}"
