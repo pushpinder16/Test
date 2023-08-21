@@ -21,4 +21,9 @@ jobs:
         dotnet restore
         dotnet build --configuration Release
 
-    # Add more steps for testing, deployment, etc.
+
+      - name: Create and Upload Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: build-artifact
+          path: bin/Release
