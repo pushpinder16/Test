@@ -16,7 +16,7 @@ jobs:
         dotnet-version: 3.1.x # Replace with your desired .NET version
 
     - name: Restore dependencies and build
-      working-directory: Test3/Test3
+      working-directory: Users\anus1\source\repos\Test3\Test3>
       run: |
         dotnet restore
         dotnet build --configuration Release
